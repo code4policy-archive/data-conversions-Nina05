@@ -2,9 +2,9 @@ var margin = {top: 20, right: 50, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-var parseDate = d3.time.format("%d-%b-%y").parse,
+var parseDate = d3.time.format("%Y").parse,
     bisectDate = d3.bisector(function(d) { return d.date; }).left,
-    formatValue = d3.format(",.2f"),
+    formatValue = d3.format(""),
     formatCurrency = function(d) { return "$" + formatValue(d); };
 
 var x = d3.time.scale()
@@ -31,7 +31,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.tsv("dummy.tsv", function(error, data) {
+d3.csv("Global-Emissions.csv", function(error, data) {
   if (error) throw error;
 
   data.forEach(function(d) {
@@ -59,7 +59,7 @@ d3.tsv("dummy.tsv", function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Price ($)");
+      .text("Global CO2 Emissions");
 
   svg.append("path")
       .datum(data)
