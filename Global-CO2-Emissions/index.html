@@ -2,8 +2,8 @@
 <meta charset="utf-8">
 
 <body>
-	<h1>Global CO2 Emissions in the last century</h1>	
-</body>
+	<h1>Global CO2 Emissions have continuously increased in the last 100 years</h1>
+	<h2>Million metric tons of Carbon Dioxide (CO2), Global Carbon Project's fossil CO2 emissions dataset</h2>	
 
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
@@ -54,8 +54,8 @@ d3.csv("Global-emissions.csv",
     svg.append("path")
       .datum(data)
       .attr("fill", "none")
-      .attr("stroke", "steelblue")
-      .attr("stroke-width", 1.5)
+      .attr("stroke", "pink")
+      .attr("stroke-width", 2.5)
       .attr("d", d3.line()
         .x(function(d) { return x(d.Year) })
         .y(function(d) { return y(d.Total) })
@@ -63,3 +63,10 @@ d3.csv("Global-emissions.csv",
 })
 
 </script>
+
+	<h2>Data Transformations for D3 Visualization</h2>
+	<ol>Source raw data from the Global Carbon Project's database at https://zenodo.org/record/5569235#.YeMadP7MI2x</ol>
+	<ol>Isolate global data from  1920-2020 in Excel</ol>
+	<ol>Chart the data using D3</ol>
+
+</body>
