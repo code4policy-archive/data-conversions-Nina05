@@ -24,8 +24,7 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Read the data
-d3.csv("Global-emissions.csv", function(error, data) {
-  if (error) throw error;
+d3.csv("Global-emissions.csv",
 
   // When reading the csv, I must format variables:
   function(d){
@@ -57,6 +56,6 @@ d3.csv("Global-emissions.csv", function(error, data) {
         .x(function(d) { return x(d.Year) })
         .y(function(d) { return y(d.Total) })
         )
-};
+})
 
 </script>
