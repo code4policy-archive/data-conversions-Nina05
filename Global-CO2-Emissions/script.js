@@ -18,21 +18,21 @@ d3.csv("Global-Emissions.csv", function(error, data) {
 
   // When reading the csv, I must format variables:
   function(d){
-    return { date : d3.timeParse("%Y")(d.date), value : d.value }
+    return { Year : d3.timeParse("%Y")(d.Year), Total : d.Total }
   },
   // Now I can use this dataset:
   function(data) {
 
     // Add X axis --> it is a date format
     var x = d3.scaleTime()
-      .domain(d3.extent(data, function(d) { return d.date; }))
+      .domain(d3.extent(data, function(d) { return d.Year; }))
       .range([ 0, width ]);
     svg.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
     // Add Y axis
     var y = d3.scaleLinear()
-      .domain([0, d3.max(data, function(d) { return +d.value; })])
+      .domain([0, d3.max(data, function(d) { return +d.Total; })])
       .range([ height, 0 ]);
     svg.append("g")
       .call(d3.axisLeft(y));
@@ -43,7 +43,7 @@ d3.csv("Global-Emissions.csv", function(error, data) {
       .attr("stroke", "steelblue")
       .attr("stroke-width", 1.5)
       .attr("d", d3.line()
-        .x(function(d) { return x(d.date) })
-        .y(function(d) { return y(d.value) })
+        .x(function(d) { return x(d.Year) })
+        .y(function(d) { return y(d.Total) })
         )
 };
