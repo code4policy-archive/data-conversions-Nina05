@@ -22,6 +22,7 @@ Example Order
 Solution
 
 - [Global-Emissions](./Global-CO2-Emissions/index.html) - Line Chart about global emissions
+- [Test](./Test/index.html) - Line Chart Bitcoin price evolution
 
 A more detailed explanation of how to complete example 7 can be found [here](https://github.com/code4policy/example7).
 
